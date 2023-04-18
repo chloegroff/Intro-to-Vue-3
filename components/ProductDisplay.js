@@ -24,24 +24,25 @@ app.component('product-display', {
         </ul>
 
         <div 
-          v-for="(variant, index) in variants" 
-          :key="variant.id" 
-          @mouseover="updateVariant(index)" 
-          class="color-circle" 
+          v-for="(variant, index) in variants"
+          :key="variant.id"
+          @mouseover="updateVariant(index)"
+          class="color-circle"
           :style="{ backgroundColor: variant.color }">
         </div>
         
         <button 
-          class="button" 
-          :class="{ disabledButton: !inStock }" 
-          :disabled="!inStock" 
+          class="button"
+          :class="{ disabledButton: !inStock }"
+          :disabled="!inStock"
           v-on:click="addToCart">
           Add to Cart
         </button>
+
       </div>
     </div>
-    <review-list v-if="reviews.length" :reviews="reviews"></review-list>
-    <review-form @review-submitted="addReview"></review-form>
+    <review-list v-if='reviews.length' :reviews="reviews"></review-list>
+    <review-form @review-submitted='addReview'></review-form>
   </div>`,
   data() {
     return {
@@ -63,7 +64,7 @@ app.component('product-display', {
       updateVariant(index) {
           this.selectedVariant = index
       },
-      addReview(review) {
+      addReview(review){
         this.reviews.push(review)
       }
   },
